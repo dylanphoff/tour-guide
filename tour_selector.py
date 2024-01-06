@@ -21,7 +21,9 @@ class TourSelector:
         return tour
 
     def _create_possible_tour(self) -> Tour:
-        start_location = input("Where should we start the tour? (\"Exit\" to exit) ")
+        start_location = input(
+            "Where should we start the tour? (\"Exit\" to exit) "
+        )
         if start_location.lower() == 'exit':
             return NullTour()
         theme = self._get_theme(start_location)
@@ -52,7 +54,7 @@ class TourSelector:
 
     def _get_distance_mi(self) -> float:
         return float(input("How many miles should this tour cover? "))
-    
+
     def _get_approx_stops(self, distance_mi) -> int:
         if 5 < distance_mi:
             return int(distance_mi * 1)

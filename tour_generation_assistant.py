@@ -26,8 +26,7 @@ _TOUR_ITINERARY_PROMPT_TEMPLATE_TEXT = """
     These stops should be listed in the order in which they should be visited 
     with the order determined by travel efficiency and/or the logical flow of 
     information presented from one stop to the next.
-    The location of each stop should be a specific point that can be searched 
-    and navigated to using a map mobile app such as Google Maps.
+    The location of each stop should include a title and specific GPS coordinates.
     Each stop should contain a teaser that the user will read before traveling 
     to it foreboding the information that will be covered. (e.g. for the first 
     stop: "First, we will go to x to learn about y", for middle stops: "Next, 
@@ -72,12 +71,23 @@ _THEME_INSTRUCTIONS_TEMPLATE_TEXT = """
 
 class TourGenerationAssistant:
     def __init__(self):
-        self.model = OpenAI(model_name="text-davinci-003", max_tokens = 2056)
-        self.tour_itinerary_output_parser = PydanticOutputParser(pydantic_object=Tour)
+        self.model = OpenAI(model_name="text-davinci-003", max_tokens=2056)
+        self.tour_itinerary_output_parser = PydanticOutputParser(
+            pydantic_object=Tour
+        )
         self.tour_itinerary_prompt_template = PromptTemplate(
             template=_TOUR_ITINERARY_PROMPT_TEMPLATE_TEXT,
-            input_variables=['start_location', 'distance_mi', 'approx_stops', 'theme'],
-            partial_variables={'format_instructions': self.tour_itinerary_output_parser.get_format_instructions()},
+            input_variables=[
+                "start_location",
+                "distance_mi",
+                "approx_stops",
+                "theme",
+            ],
+            partial_variables={
+                "format_instructions": (
+                    self.tour_itinerary_output_parser.get_format_instructions()
+                )
+            },
         )
 
     def generate_tour(
@@ -88,9 +98,11 @@ class TourGenerationAssistant:
         theme: str,
     ) -> Tour:
         if len(theme):
-            theme_instructions = _THEME_INSTRUCTIONS_TEMPLATE_TEXT.format(theme=theme)
+            theme_instructions = _THEME_INSTRUCTIONS_TEMPLATE_TEXT.format(
+                theme=theme
+            )
         else:
-            theme_instructions = ''
+            theme_instructions = ""
         model_input = self.tour_itinerary_prompt_template.format_prompt(
             start_location=start_location,
             distance_mi=distance_mi,

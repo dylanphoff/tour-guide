@@ -1,4 +1,3 @@
-
 import logging
 from typing import List
 
@@ -11,9 +10,9 @@ from tour_stop.tour_stop_activity_factory import TourStopActivityFactory
 logger = logging.getLogger(__name__)
 
 
-class TourGenerator():
+class TourGenerator:
     def __init__(
-        self, 
+        self,
         assistant: TourGenerationAssistant,
         tour_stop_activity_factory: TourStopActivityFactory,
     ):
@@ -22,7 +21,7 @@ class TourGenerator():
 
     def get_theme_suggestions(self, start_location: str) -> List[str]:
         return self.assistant.get_theme_suggestions(start_location)
-    
+
     def create_tour(
         self,
         start_location: str,
@@ -55,9 +54,9 @@ class TourGenerator():
             return self.tour_stop_activity_factory.create_tour_stop_activity(
                 raw_tour_stop_activity
             )
-        except Exception as e:
+        except Exception:
             logger.error(
-                "Failed to generate executable tour stop activity for %s", 
+                "Failed to generate executable tour stop activity for %s",
                 str(raw_tour_stop_activity),
             )
             return None
