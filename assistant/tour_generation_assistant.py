@@ -1,5 +1,7 @@
+from typing import List
 import logging
 from langchain.llms import OpenAI
+from assistant.theme_suggestions_prompt import ThemeSuggestionsPrompt
 from assistant.tour_generation_prompt import TourGenerationPrompt
 
 from tour import Tour
@@ -28,11 +30,15 @@ class TourGenerationAssistant:
             theme=theme,
         )
         prompt_text = prompt.get_prompt_text()
-        logging.debug("Model input: %s", prompt_text)
+        logging.debug("Tour generation model input: %s", prompt_text)
         model_output = self.model(prompt_text)
-        logging.debug("Model output: %s", model_output)
+        logging.debug("Tour generation model output: %s", model_output)
         return prompt.parse_model_output(model_output)
 
-    def get_theme_suggestions(self, start_location):
-        # TODO
-        return []
+    def get_theme_suggestions(self, start_location) -> List[str]:
+        prompt = ThemeSuggestionsPrompt(start_location=start_location)
+        prompt_text = prompt.get_prompt_text()
+        logging.debug("Theme suggestion model input: %s", prompt_text)
+        model_output = self.model(prompt_text)
+        logging.debug("Theme suggestions model output: %s", model_output)
+        return prompt.parse_model_output(model_output)

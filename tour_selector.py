@@ -38,7 +38,7 @@ class TourSelector:
             start_location
         )
         if 0 < len(theme_suggestions):
-            suggestions_line = f"Suggestions: {theme_suggestions.join(',')}\n"
+            suggestions_line = f"Suggestions: {','.join(theme_suggestions)}\n"
         else:
             suggestions_line = ""
         theme = input(

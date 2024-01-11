@@ -20,7 +20,7 @@ class TourGuide():
         self.tour_selector = TourSelector(tour_generator)
         tour_stop_activity_executor = TourStopActivityExecutor()
         self.tour_executor = TourExecutor(tour_stop_activity_executor)
-    
+
     def run(self):
         try:
             running = True
@@ -31,4 +31,4 @@ class TourGuide():
                 else:
                     self.tour_executor.execute_tour(tour)
         except Exception as e:
-            logger.exception("Fatal exception occurred", e)
+            logger.exception("Fatal exception occurred", exc_info=e)

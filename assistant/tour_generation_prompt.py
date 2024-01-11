@@ -4,7 +4,7 @@ from langchain.prompts import PromptTemplate
 from tour import Tour
 
 
-_TOUR_ITINERARY_PROMPT_TEMPLATE_TEXT = """
+_PROMPT_TEMPLATE_TEXT = """
 Create an itinerary for a walking tour.
 The tour should be described with a title and short description.
 Start location: {start_location}
@@ -81,15 +81,15 @@ class TourGenerationPrompt:
         self.approx_stops = approx_stops
         self.theme = theme
         self.prompt_template = PromptTemplate(
-            template=_TOUR_ITINERARY_PROMPT_TEMPLATE_TEXT,
+            template=_PROMPT_TEMPLATE_TEXT,
             input_variables=[
-                "start_location",
-                "distance_mi",
-                "approx_stops",
-                "theme",
+                'start_location',
+                'distance_mi',
+                'approx_stops',
+                'theme',
             ],
             partial_variables={
-                "format_instructions": (
+                'format_instructions': (
                     self.output_parser.get_format_instructions()
                 )
             },

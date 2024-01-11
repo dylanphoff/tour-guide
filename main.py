@@ -1,6 +1,9 @@
+import logging
 from dotenv import load_dotenv
 
 from tour_guide import TourGuide
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 def main():
