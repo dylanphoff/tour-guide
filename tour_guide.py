@@ -1,5 +1,5 @@
 import logging
-from tour_generation_assistant import TourGenerationAssistant
+from assistant.tour_generation_assistant import TourGenerationAssistant
 
 from tour import NullTour
 from tour_generator import TourGenerator

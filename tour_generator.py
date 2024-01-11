@@ -2,7 +2,7 @@ import logging
 from typing import List
 
 from tour import Tour
-from tour_generation_assistant import TourGenerationAssistant
+from assistant.tour_generation_assistant import TourGenerationAssistant
 from tour_stop.tour_stop_activity import RawTourStopActivity, TourStopActivity
 from tour_stop.tour_stop_activity_factory import TourStopActivityFactory
 
