@@ -2,7 +2,7 @@ import logging
 from typing import List
 
 from tour import Tour
-from assistant.tour_generation_assistant import TourGenerationAssistant
+from agent.tour_generation_agent import TourGenerationAgent
 from tour_stop.tour_stop_activity import RawTourStopActivity, TourStopActivity
 from tour_stop.tour_stop_activity_factory import TourStopActivityFactory
 
@@ -13,14 +13,14 @@ logger = logging.getLogger(__name__)
 class TourGenerator:
     def __init__(
         self,
-        assistant: TourGenerationAssistant,
+        agent: TourGenerationAgent,
         tour_stop_activity_factory: TourStopActivityFactory,
     ):
-        self.assistant = assistant
+        self.agent = agent
         self.tour_stop_activity_factory = tour_stop_activity_factory
 
     def get_theme_suggestions(self, start_location: str) -> List[str]:
-        return self.assistant.get_theme_suggestions(start_location)
+        return self.agent.get_theme_suggestions(start_location)
 
     def create_tour(
         self,
@@ -29,7 +29,7 @@ class TourGenerator:
         approx_stops: int,
         theme: str,
     ) -> Tour:
-        tour = self.assistant.generate_tour(
+        tour = self.agent.generate_tour(
             start_location=start_location,
             distance_mi=distance_mi,
             approx_stops=approx_stops,

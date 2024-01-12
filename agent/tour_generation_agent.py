@@ -1,8 +1,8 @@
 from typing import List
 import logging
 from langchain.llms import OpenAI
-from assistant.theme_suggestions_prompt import ThemeSuggestionsPrompt
-from assistant.tour_generation_prompt import TourGenerationPrompt
+from agent.theme_suggestions_prompt import ThemeSuggestionsPrompt
+from agent.tour_generation_prompt import TourGenerationPrompt
 
 from tour import Tour
 
@@ -10,7 +10,7 @@ from tour import Tour
 logger = logging.getLogger(__name__)
 
 
-class TourGenerationAssistant:
+class TourGenerationAgent:
     def __init__(self):
         self.model = OpenAI(
             model_name="gpt-3.5-turbo-instruct", max_tokens=2056

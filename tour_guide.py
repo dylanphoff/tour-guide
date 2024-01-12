@@ -1,5 +1,5 @@
 import logging
-from assistant.tour_generation_assistant import TourGenerationAssistant
+from agent.tour_generation_agent import TourGenerationAgent
 
 from tour import NullTour
 from tour_generator import TourGenerator
@@ -14,9 +14,9 @@ logger = logging.getLogger(__name__)
 
 class TourGuide():
     def __init__(self):
-        assistant = TourGenerationAssistant()
+        agent = TourGenerationAgent()
         tour_stop_activity_factory = TourStopActivityFactory()
-        tour_generator = TourGenerator(assistant, tour_stop_activity_factory)
+        tour_generator = TourGenerator(agent, tour_stop_activity_factory)
         self.tour_selector = TourSelector(tour_generator)
         tour_stop_activity_executor = TourStopActivityExecutor()
         self.tour_executor = TourExecutor(tour_stop_activity_executor)
