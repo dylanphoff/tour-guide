@@ -26,24 +26,6 @@ def extract_data(view_func):
 
 @require_GET
 @extract_data
-def theme_suggestions_view(request: HttpRequest, data: dict) -> HttpResponse:
-    start_location = data.get("start_location")
-    if not start_location:
-        error_response = {"error": "Start location field is required"}
-        return HttpResponse(
-            json.dumps(error_response),
-            content_type="application/json",
-            status=400,
-        )
-    theme_suggestions = tour_generation_agent.get_theme_suggestions(
-        start_location
-    )
-    response = {"theme_suggestions": theme_suggestions}
-    return HttpResponse(json.dumps(response), content_type="application/json")
-
-
-@require_GET
-@extract_data
 def create_tour_view(request: HttpRequest, data: dict) -> HttpResponse:
     start_location = data.get("start_location")
     distance_mi = data.get("distance_mi")
@@ -68,4 +50,22 @@ def create_tour_view(request: HttpRequest, data: dict) -> HttpResponse:
         theme=theme,
     )
     response = {"tour": tour.dict()}
+    return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+@require_GET
+@extract_data
+def theme_suggestions_view(request: HttpRequest, data: dict) -> HttpResponse:
+    start_location = data.get("start_location")
+    if not start_location:
+        error_response = {"error": "Start location field is required"}
+        return HttpResponse(
+            json.dumps(error_response),
+            content_type="application/json",
+            status=400,
+        )
+    theme_suggestions = tour_generation_agent.get_theme_suggestions(
+        start_location
+    )
+    response = {"theme_suggestions": theme_suggestions}
     return HttpResponse(json.dumps(response), content_type="application/json")

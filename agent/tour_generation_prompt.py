@@ -80,6 +80,9 @@ class TourGenerationPrompt:
         self.distance_mi = distance_mi
         self.approx_stops = approx_stops
         self.theme = theme
+        self.output_parser = PydanticOutputParser(
+            pydantic_object=Tour
+        )
         self.prompt_template = PromptTemplate(
             template=_PROMPT_TEMPLATE_TEXT,
             input_variables=[
@@ -93,9 +96,6 @@ class TourGenerationPrompt:
                     self.output_parser.get_format_instructions()
                 )
             },
-        )
-        self.output_parser = PydanticOutputParser(
-            pydantic_object=Tour
         )
 
     def get_prompt_text(self) -> str:
