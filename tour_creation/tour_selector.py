@@ -1,6 +1,6 @@
 import logging
 
-from tour import NullTour, Tour
+from common.tour import NullTour, Tour
 from tour_generator import TourGenerator
 
 

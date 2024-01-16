@@ -1,5 +1,5 @@
-from tour import Tour
-from tour_stop.tour_stop_activity_executor import TourStopActivityExecutor
+from common.tour import Tour
+from tour_stop_activity_executor import TourStopActivityExecutor
 from typing import List
 
 

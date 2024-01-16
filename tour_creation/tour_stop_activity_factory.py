@@ -1,4 +1,4 @@
-from tour_stop.tour_stop_activity import (
+from common.tour_stop_activity import (
     RawTourStopActivity,
     TourStopActivity,
     TourStopActivityType,

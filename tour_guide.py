@@ -1,11 +1,11 @@
 import logging
 from agent.tour_generation_agent import TourGenerationAgent
 
-from tour import NullTour
-from tour_generator import TourGenerator
-from tour_selector import TourSelector
-from tour_stop.tour_stop_activity_executor import TourStopActivityExecutor
-from tour_stop.tour_stop_activity_factory import TourStopActivityFactory
+from common.tour import NullTour
+from tour_creation.tour_generator import TourGenerator
+from tour_creation.tour_selector import TourSelector
+from tour_stop_activity_executor import TourStopActivityExecutor
+from tour_creation.tour_stop_activity_factory import TourStopActivityFactory
 from tour_executor import TourExecutor
 
 

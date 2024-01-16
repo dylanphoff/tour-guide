@@ -4,7 +4,7 @@ from langchain.llms import OpenAI
 from agent.theme_suggestions_prompt import ThemeSuggestionsPrompt
 from agent.tour_generation_prompt import TourGenerationPrompt
 
-from tour import Tour
+from common.tour import Tour
 
 
 logger = logging.getLogger(__name__)

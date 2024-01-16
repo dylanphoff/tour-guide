@@ -1,10 +1,10 @@
 import logging
 from typing import List
 
-from tour import Tour
+from common.tour import Tour
 from agent.tour_generation_agent import TourGenerationAgent
-from tour_stop.tour_stop_activity import RawTourStopActivity, TourStopActivity
-from tour_stop.tour_stop_activity_factory import TourStopActivityFactory
+from common.tour_stop_activity import RawTourStopActivity, TourStopActivity
+from tour_creation.tour_stop_activity_factory import TourStopActivityFactory
 
 
 logger = logging.getLogger(__name__)
