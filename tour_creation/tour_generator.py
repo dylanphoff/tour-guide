@@ -26,9 +26,9 @@ class TourGenerator:
         self,
         start_location: str,
         distance_mi: float,
-        approx_stops: int,
         theme: str,
     ) -> Tour:
+        approx_stops = self._get_approx_stops(distance_mi)
         tour = self.agent.generate_tour(
             start_location=start_location,
             distance_mi=distance_mi,
@@ -37,6 +37,11 @@ class TourGenerator:
         )
         self._fill_executable_activities(tour)
         return tour
+
+    def _get_approx_stops(self, distance_mi) -> int:
+        if 5 < distance_mi:
+            return int(distance_mi * 1)
+        return int(distance_mi * 2)
 
     def _fill_executable_activities(self, tour: Tour) -> None:
         for tour_stop in tour.stops:

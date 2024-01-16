@@ -1,7 +1,7 @@
 import logging
 
 from common.tour import NullTour, Tour
-from tour_generator import TourGenerator
+from tour_creation.tour_generator import TourGenerator
 
 
 logger = logging.getLogger(__name__)
