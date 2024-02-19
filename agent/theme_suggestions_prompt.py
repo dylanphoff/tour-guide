@@ -14,7 +14,7 @@ Your output should be a valid JSON list of strings and nothing else
 
 
 class ThemeSuggestionsPrompt:
-    def __init__(self, start_location: str):
+    def __init__(self, start_location: str) -> None:
         self.start_location = start_location
         self.prompt_template = PromptTemplate(
             template=_PROMPT_TEMPLATE_TEXT,

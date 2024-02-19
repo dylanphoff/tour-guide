@@ -6,7 +6,7 @@ from tour_guide import TourGuide
 logging.basicConfig(level=logging.DEBUG)
 
 
-def main():
+def main() -> None:
     load_dotenv()
     tour_guide = TourGuide()
     tour_guide.run()

@@ -15,7 +15,7 @@ class TourGenerator:
         self,
         agent: TourGenerationAgent,
         tour_stop_activity_factory: TourStopActivityFactory,
-    ):
+    ) -> None:
         self.agent = agent
         self.tour_stop_activity_factory = tour_stop_activity_factory
 
@@ -63,7 +63,7 @@ class TourGenerator:
             )
             raise
 
-    def _get_approx_stops(self, distance_mi) -> int:
+    def _get_approx_stops(self, distance_mi: float) -> int:
         if 5 < distance_mi:
             return int(distance_mi * 1)
         return int(distance_mi * 2)

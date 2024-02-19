@@ -75,7 +75,7 @@ class TourGenerationPrompt:
         distance_mi: float,
         approx_stops: int,
         theme: str,
-    ):
+    ) -> None:
         self.start_location = start_location
         self.distance_mi = distance_mi
         self.approx_stops = approx_stops
