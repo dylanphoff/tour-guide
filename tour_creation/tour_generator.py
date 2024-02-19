@@ -29,7 +29,7 @@ class TourGenerator:
         theme: str,
     ) -> Tour:
         approx_stops = self._get_approx_stops(distance_mi)
-        tour = self.agent.generate_tour(
+        tour = self._generate_tour(
             start_location=start_location,
             distance_mi=distance_mi,
             approx_stops=approx_stops,
@@ -37,6 +37,31 @@ class TourGenerator:
         )
         self._fill_executable_activities(tour)
         return tour
+
+    def _generate_tour(
+        self,
+        start_location: str,
+        distance_mi: float,
+        approx_stops: int,
+        theme: str,
+    ) -> Tour:
+        try:
+            return self.agent.generate_tour(
+                start_location=start_location,
+                distance_mi=distance_mi,
+                approx_stops=approx_stops,
+                theme=theme,
+            )
+        except Exception:
+            logger.error(
+                "Failed to generate tour with start_location: %s, "
+                "distance_mi: %d, approx_stops: %d, theme: %s",
+                start_location,
+                distance_mi,
+                approx_stops,
+                theme,
+            )
+            raise
 
     def _get_approx_stops(self, distance_mi) -> int:
         if 5 < distance_mi:
@@ -61,7 +86,7 @@ class TourGenerator:
             )
         except Exception:
             logger.error(
-                "Failed to generate executable tour stop activity for %s",
+                "Failed to create executable tour stop activity for %s",
                 str(raw_tour_stop_activity),
             )
             return None
