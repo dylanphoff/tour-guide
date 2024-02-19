@@ -11,17 +11,6 @@ class Tour(BaseModel):
     stops: List[TourStop] = Field(
         description="list of all stops included in this tour"
     )
-    curr_index = 0
-
-    def next_stop(self) -> TourStop:
-        if self.completed():
-            raise Exception()
-        stop = self.stops[self.curr_index]
-        self.curr_index += 1
-        return stop
-
-    def completed(self) -> bool:
-        return len(self.stops) <= self.curr_index
 
 
 class NullTour(Tour):
