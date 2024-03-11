@@ -6,6 +6,7 @@ from typing import List
 
 class TourStopActivityType(Enum):
     TRIVIA = 1
+    IMAGE = 2
 
 
 class RawTourStopActivity(BaseModel):
@@ -28,5 +29,9 @@ class TriviaActivity(TourStopActivity):
         return TourStopActivityType.TRIVIA
 
 
-class PhotoActivity(TourStopActivity):
-    pass
+class ImageActivity(TourStopActivity):
+    image_url: str
+    description: str
+
+    def get_type(self) -> TourStopActivityType:
+        return TourStopActivityType.IMAGE

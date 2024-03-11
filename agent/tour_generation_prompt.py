@@ -53,8 +53,17 @@ Content Schema: [
     answer_options: List[str],
     correct_answer_index: int,
 ]
+Type: image
+Description: An image of a scene relevant to the stop, accounting for the 
+theme and period the tour covers. The prompt field is a prompt for an AI model 
+to generate this image and the description field is a description that 
+accurately describes the generated image
+Content Schema: [
+    prompt: str,
+    description: str,
+]
 
-The response must be valid json. Do not output invalid nested quotes.
+The response must be valid JSON. Only use single quotes within the values.
 
 {format_instructions}
 """
