@@ -47,7 +47,9 @@ the corresponding json schema exactly.
 Activity Types
 Type: trivia
 Description: A trivia question related to the stop with 4 options for the 
-answer and one being correct, indicated by correct_answer_index
+answer and one being correct, indicated by correct_answer_index. Do not 
+make the trivia question a question who's answer is revealed in the background 
+or key facts.
 Content Schema: [
     question: str,
     answer_options: List[str],
