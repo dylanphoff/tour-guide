@@ -15,10 +15,10 @@ Approximate total distance in miles: {distance_mi}
 Stops
 - There should be approximately {approx_stops} stops along the tour.
 - Populate the entire list of stops with valid stops.
-- The location of each stop must be as specific as possible so there is no ambiguity 
-about where to stand (e.g. if the location is a building, the location must 
-specify exactly where around or in the building the users should stand to 
-give the related information the best context).
+- The location of each stop must be as specific as possible so there is no 
+ambiguity about where to stand (e.g. if the location is a building, the 
+location must specify exactly where around or in the building the users should 
+stand to give the related information the best context).
 - If the start location is an interesting place, it should be the first stop.
 - The number of stops can be slightly higher or lower depending on how much 
 information there is to cover in the area given the distance.
@@ -39,6 +39,8 @@ amount of relevant information.
 
 Stop Activities
 - For some of the stops, add activities to be perfomed.
+- Add the activities to the 'activities' field, leaving 
+'executable_activities' blank
 - A stop can have no activities, a single activity, or multiple activities 
 depending on how well activities would fit the stop.
 - An activity can be one of the following types and its content must match 

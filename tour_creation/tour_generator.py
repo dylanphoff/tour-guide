@@ -75,7 +75,7 @@ class TourGenerator:
                     raw_tour_stop_activity
                 )
                 if tour_stop_activity is not None:
-                    tour_stop._executable_activities.append(tour_stop_activity)
+                    tour_stop.executable_activities.append(tour_stop_activity)
 
     def _create_tour_stop_activity(
         self, raw_tour_stop_activity: RawTourStopActivity
