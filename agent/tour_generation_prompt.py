@@ -39,8 +39,8 @@ amount of relevant information.
 
 Stop Activities
 - For some of the stops, add activities to be perfomed.
-- Add the activities to the 'activities' field, leaving 
-'executable_activities' blank
+- Add the activities to the 'activities' field, always filling 
+'executable_activities' with an empty list.
 - A stop can have no activities, a single activity, or multiple activities 
 depending on how well activities would fit the stop.
 - An activity can be one of the following types and its content must match 
