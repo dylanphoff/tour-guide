@@ -65,7 +65,7 @@ class TourGenerator:
 
     def _get_approx_stops(self, distance_mi: float) -> int:
         if 5 < distance_mi:
-            return int(distance_mi * 1)
+            return int(distance_mi)
         return int(distance_mi * 2)
 
     def _fill_executable_activities(self, tour: Tour) -> None:

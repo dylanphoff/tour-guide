@@ -12,7 +12,12 @@ def mock_model():
 
 
 def test_generate_tour(monkeypatch, mock_model):
-    expected_tour = Mock()
+    expected_tour = Tour(
+        title="Test Tour",
+        description="A test tour",
+        distance_mi=5,
+        stops=[],
+    )
     mock_parse_model_output = Mock(return_value=expected_tour)
     monkeypatch.setattr(
         "agent.tour_generation_agent.TourGenerationPrompt.parse_model_output",
@@ -26,7 +31,7 @@ def test_generate_tour(monkeypatch, mock_model):
         approx_stops=5,
         theme="Architecture",
     )
-    assert tour is expected_tour
+    assert tour == expected_tour
     mock_parse_model_output.assert_called_once_with("Mocked model output")
 
 
