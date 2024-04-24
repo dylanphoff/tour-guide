@@ -13,7 +13,10 @@ logger = logging.getLogger(__name__)
 class TourGenerationAgent:
     def __init__(self) -> None:
         self.model = OpenAI(
-            model_name="gpt-3.5-turbo-instruct", max_tokens=2056
+            model_name="gpt-3.5-turbo-instruct",
+            max_tokens=2056,
+            temperature=1.4,
+            top_p=0.9,
         )
 
     def generate_tour(
