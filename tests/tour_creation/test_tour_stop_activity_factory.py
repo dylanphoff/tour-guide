@@ -11,10 +11,10 @@ from tour_creation.tour_stop_activity_factory import TourStopActivityFactory
 @pytest.fixture
 def mock_dalle_api_wrapper(monkeypatch):
     wrapper = Mock()
-    wrapper.return_value.run.return_value = "https://example.com/image.jpg"
+    wrapper.run.return_value = "https://example.com/image.jpg"
     monkeypatch.setattr(
         "tour_creation.tour_stop_activity_factory.DallEAPIWrapper",
-        wrapper,
+        Mock(return_value=wrapper),
     )
     return wrapper
 
