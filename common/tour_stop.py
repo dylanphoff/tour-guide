@@ -18,5 +18,4 @@ class TourStop(BaseModel):
     activities: List[RawTourStopActivity] = Field(
         description="list of activities to complete at this stop"
     )
-    # The leading underscore excludes the field from the model schema
     executable_activities: List[TourStopActivity] = []
