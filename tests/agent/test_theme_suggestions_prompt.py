@@ -1,5 +1,5 @@
 import pytest
-from agent.theme_suggestions_prompt import ThemeSuggestionsPrompt
+from tour_guide.agent.theme_suggestions_prompt import ThemeSuggestionsPrompt
 from unittest.mock import Mock
 
 

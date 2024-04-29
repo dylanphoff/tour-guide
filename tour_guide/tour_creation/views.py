@@ -3,9 +3,11 @@ from typing import Callable
 from django.http import HttpRequest, HttpResponse
 from django.views.decorators.http import require_GET
 
-from tour_creation.__init__ import tour_generation_agent
-from tour_creation.tour_generator import TourGenerator
-from tour_creation.tour_stop_activity_factory import TourStopActivityFactory
+from tour_guide.tour_creation.__init__ import tour_generation_agent
+from tour_guide.tour_creation.tour_generator import TourGenerator
+from tour_guide.tour_creation.tour_stop_activity_factory import (
+    TourStopActivityFactory,
+)
 
 
 def extract_data(view_func: Callable) -> Callable:

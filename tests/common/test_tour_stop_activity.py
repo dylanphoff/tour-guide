@@ -1,4 +1,4 @@
-from common.tour_stop_activity import (
+from tour_guide.common.tour_stop_activity import (
     TriviaActivity,
     ImageActivity,
     TourStopActivityType,

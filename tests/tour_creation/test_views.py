@@ -1,8 +1,11 @@
 import json
 from unittest.mock import Mock
 import pytest
-from common.tour import Tour
-from tour_creation.views import create_tour_view, theme_suggestions_view
+from tour_guide.common.tour import Tour
+from tour_guide.tour_creation.views import (
+    create_tour_view,
+    theme_suggestions_view,
+)
 from django.conf import settings
 
 settings.configure()
@@ -12,7 +15,8 @@ settings.configure()
 def mock_tour_generator(monkeypatch):
     tour_generator = Mock()
     monkeypatch.setattr(
-        "tour_creation.views.TourGenerator", Mock(return_value=tour_generator)
+        "tour_guide.tour_creation.views.TourGenerator",
+        Mock(return_value=tour_generator),
     )
     return tour_generator
 
@@ -21,7 +25,7 @@ def mock_tour_generator(monkeypatch):
 def mock_tour_generation_agent(monkeypatch):
     tour_generation_agent = Mock()
     monkeypatch.setattr(
-        "tour_creation.views.tour_generation_agent",
+        "tour_guide.tour_creation.views.tour_generation_agent",
         tour_generation_agent,
     )
     return tour_generation_agent

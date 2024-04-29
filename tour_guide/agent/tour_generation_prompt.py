@@ -1,7 +1,7 @@
 from langchain.output_parsers import PydanticOutputParser
 from langchain.prompts import PromptTemplate
 
-from common.tour import Tour
+from tour_guide.common.tour import Tour
 
 
 _PROMPT_TEMPLATE_TEXT = """

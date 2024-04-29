@@ -1,10 +1,9 @@
 from typing import List
 import logging
 from langchain.llms import OpenAI
-from agent.theme_suggestions_prompt import ThemeSuggestionsPrompt
-from agent.tour_generation_prompt import TourGenerationPrompt
-
-from common.tour import Tour
+from tour_guide.agent.theme_suggestions_prompt import ThemeSuggestionsPrompt
+from tour_guide.agent.tour_generation_prompt import TourGenerationPrompt
+from tour_guide.common.tour import Tour
 
 
 logger = logging.getLogger(__name__)

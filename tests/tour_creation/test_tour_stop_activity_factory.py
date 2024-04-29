@@ -1,11 +1,13 @@
 from unittest.mock import Mock
 import pytest
-from common.tour_stop_activity import (
+from tour_guide.common.tour_stop_activity import (
     TriviaActivity,
     ImageActivity,
     RawTourStopActivity,
 )
-from tour_creation.tour_stop_activity_factory import TourStopActivityFactory
+from tour_guide.tour_creation.tour_stop_activity_factory import (
+    TourStopActivityFactory,
+)
 
 
 @pytest.fixture
@@ -13,7 +15,7 @@ def mock_dalle_api_wrapper(monkeypatch):
     wrapper = Mock()
     wrapper.run.return_value = "https://example.com/image.jpg"
     monkeypatch.setattr(
-        "tour_creation.tour_stop_activity_factory.DallEAPIWrapper",
+        "tour_guide.tour_creation.tour_stop_activity_factory.DallEAPIWrapper",
         Mock(return_value=wrapper),
     )
     return wrapper

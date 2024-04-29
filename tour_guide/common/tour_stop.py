@@ -1,7 +1,10 @@
 from langchain_core.pydantic_v1 import BaseModel, Field
 from typing import List
 
-from common.tour_stop_activity import RawTourStopActivity, TourStopActivity
+from tour_guide.common.tour_stop_activity import (
+    RawTourStopActivity,
+    TourStopActivity,
+)
 
 
 class TourStop(BaseModel):

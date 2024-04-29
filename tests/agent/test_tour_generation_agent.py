@@ -1,7 +1,7 @@
 from unittest.mock import Mock
 import pytest
-from agent.tour_generation_agent import TourGenerationAgent
-from common.tour import Tour
+from tour_guide.agent.tour_generation_agent import TourGenerationAgent
+from tour_guide.common.tour import Tour
 
 
 @pytest.fixture
@@ -20,7 +20,7 @@ def test_generate_tour(monkeypatch, mock_model):
     )
     mock_parse_model_output = Mock(return_value=expected_tour)
     monkeypatch.setattr(
-        "agent.tour_generation_agent.TourGenerationPrompt.parse_model_output",
+        "tour_guide.agent.tour_generation_agent.TourGenerationPrompt.parse_model_output",
         mock_parse_model_output,
     )
     agent = TourGenerationAgent()
@@ -39,7 +39,7 @@ def test_get_theme_suggestions(monkeypatch, mock_model):
     expected_theme_suggestions = ["theme 1", "theme 2", "theme 3"]
     mock_parse_model_output = Mock(return_value=expected_theme_suggestions)
     monkeypatch.setattr(
-        "agent.tour_generation_agent.ThemeSuggestionsPrompt.parse_model_output",
+        "tour_guide.agent.tour_generation_agent.ThemeSuggestionsPrompt.parse_model_output",
         mock_parse_model_output,
     )
     agent = TourGenerationAgent()

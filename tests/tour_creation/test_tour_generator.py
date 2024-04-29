@@ -1,9 +1,9 @@
 from unittest.mock import Mock
 import pytest
-from common.tour import Tour
-from common.tour_stop import TourStop
-from common.tour_stop_activity import RawTourStopActivity
-from tour_creation.tour_generator import TourGenerator
+from tour_guide.common.tour import Tour
+from tour_guide.common.tour_stop import TourStop
+from tour_guide.common.tour_stop_activity import RawTourStopActivity
+from tour_guide.tour_creation.tour_generator import TourGenerator
 
 
 @pytest.fixture

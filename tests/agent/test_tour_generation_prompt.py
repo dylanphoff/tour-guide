@@ -1,12 +1,12 @@
 import pytest
-from agent.tour_generation_prompt import TourGenerationPrompt
+from tour_guide.agent.tour_generation_prompt import TourGenerationPrompt
 from unittest.mock import Mock
 
 
 @pytest.fixture
 def prompt(monkeypatch):
     monkeypatch.setattr(
-        "agent.tour_generation_prompt.PydanticOutputParser.get_format_instructions",
+        "tour_guide.agent.tour_generation_prompt.PydanticOutputParser.get_format_instructions",
         Mock(return_value="these are the format instructions"),
     )
     return TourGenerationPrompt(
